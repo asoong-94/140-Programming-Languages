@@ -1,0 +1,31 @@
+ECS 140A - Programming Languages - Program 1
+
+Team: Ellie Yeung (997567960), Alexander Soong (998857734)
+
+This is the first programming assignment for ECS 140A, helping us understand 
+and implement the procedures of a compiler, from lexical analysis (breaking 
+things down to tokens), to syntactic analysis (parsing to combine tokens into 
+statements), to semantic analysis (check variables consistency), to code 
+generation (skipping optimization).
+
+With e2c.java, Token.java, incomplete TK.java, incomplete Scan.java, incomplete
+Parser.java, and EBNF rules given, we have to:
+1) complete Scan.java and TK.java to include all tokens we have to account for
+2) complete Parser.java to be able to check for language consistency.
+3) creating a symbol table and checking undeclaration and reclaration of 
+variables
+4) translating E language to C language
+5) adding a new iteration statement to the E language. We decided to go with for
+loops. It is one of the most commonly used loops. We chose the token that was 
+not already in use.
+
+The additional BNF will be:
+for ::= '^' ref_id num addop block
+
+A varaible has to be declared outside of the for loop (not inside).
+
+We decided to simplify this for condition by making the for loop take only a
+number and an +/- symbol as the condition and the loop statement. If the coder
+typed +  (increment), we assume the variable is less than the condition and do a
+< comparison, and for -(decrement), we assume the variable is greater than the 
+condition and do a > comparison.
